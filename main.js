@@ -1,27 +1,36 @@
 var input = document.querySelector(".input-list");
 const clearAll = document.getElementById("clear-all-btn");
+var tasks;
 
-var tasks = getValueFromLocalStorage("tasks");
-renderTask();
+if (getValueFromLocalStorage("tasks") != null) {
+  tasks = getValueFromLocalStorage("tasks");
+  renderTask();
+} else {
+  tasks = [];
+  renderTask();
+}
 
 function renderTask() {
   let content = "";
-
-  tasks.forEach(function (a, index) {
-    content += `<div id="${index}" class="to-do-list-content-item">
+  if (tasks.length > 0) {
+    tasks.forEach(function (a, index) {
+      content += `<div id="${index}" class="to-do-list-content-item">
                         ${
                           a.isDone == true
                             ? `<input type="checkbox" id="check-${index}" class="item-check-box" >`
                             : `<input type="checkbox" id="check-${index}" class="item-check-box" checked>`
                         }
-                        <label onclick="setState(${index})" for="check-${index}" title="${a.text}" class="content-text">${a.text}</label>
+                        <label onclick="setState(${index})" for="check-${index}" title="${
+        a.text
+      }" class="content-text">${a.text}</label>
                         <i onclick="editTasks(${index})" class="ti-pencil"></i>
                         <i onclick="deleteTasks(${index})" class="ti-eraser"></i>
                     </div>`;
-    a.id = index;
-  });
+      a.id = index;
+    });
 
-  document.querySelector(".to-do-list-content-list").innerHTML = content;
+    document.querySelector(".to-do-list-content-list").innerHTML = content;
+  }
 }
 
 input.onkeypress = function (e) {
