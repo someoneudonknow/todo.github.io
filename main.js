@@ -2,17 +2,13 @@ var input = document.querySelector(".input-list");
 const clearAll = document.getElementById("clear-all-btn");
 var tasks;
 
-if (getValueFromLocalStorage("tasks") != null) {
-  tasks = getValueFromLocalStorage("tasks");
-  renderTask();
-} else {
-  tasks = [];
-  renderTask();
-}
+(getValueFromLocalStorage("tasks") != null) ? tasks = getValueFromLocalStorage("tasks") : tasks = [];
+
+renderTask();
 
 function renderTask() {
   let content = "";
-  if (tasks.length > 0) {
+  
     tasks.forEach(function (a, index) {
       content += `<div id="${index}" class="to-do-list-content-item">
                         ${
@@ -30,7 +26,6 @@ function renderTask() {
     });
 
     document.querySelector(".to-do-list-content-list").innerHTML = content;
-  }
 }
 
 input.onkeypress = function (e) {
