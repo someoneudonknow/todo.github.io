@@ -9,7 +9,6 @@ renderTask();
 
 function renderTask() {
   let content = "";
-
     tasks.forEach(function (a, index) {
       content += `<div id="${index}" class="to-do-list-content-item">
                         ${
