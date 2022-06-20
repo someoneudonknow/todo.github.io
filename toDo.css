@@ -79,6 +79,27 @@ body {
   padding: 1rem 0;
   color: black;
   background-color: #ffff88;
+
+}
+
+.input-wrapper{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-wrapper i{
+  font-size: 1.8rem;
+  margin-left: 2px;
+  opacity: 0.6;
+  color: green;
+  transition: all ease-in-out .4s;
+}
+
+.input-wrapper i:hover{
+  opacity: 1;
+  transform: scale(1.2) rotate(180deg);
+  cursor: pointer;
 }
 
 input::-webkit-input-placeholder {
@@ -111,15 +132,15 @@ input::-moz-placeholder {
   font-size: 1.5rem;
   color: red;
   position: absolute;
-  opacity: 0.7;
+  opacity: 0.6;
   transition: all 0.17s ease-in-out;
 }
 
-.to-do-list-content-item i[class="ti-eraser"] {
-  right: 0;
+.to-do-list-content-item i[class="fa-solid fa-eraser"] {
+  right:3px;
 }
 
-.to-do-list-content-item i[class="ti-pencil"] {
+.to-do-list-content-item i[class="fa-solid fa-pencil"] {
   left: 0;
 }
 
